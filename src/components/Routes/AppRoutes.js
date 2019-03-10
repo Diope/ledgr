@@ -1,5 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from '../../redux/store'
 
 import App from '../App'
 import Header from '../Presentation/Header'
@@ -8,9 +10,10 @@ import AboutPage from '../Presentation/About'
 import EditBudget from '../Container/EditBudget'
 
 const AppRoutes = () => {
-  return ( 
-    <Router>
-      <div>
+  return (
+    <Provider store={store}>
+      <Router>
+        <div>
         <Header />
         <Switch>
           <Route path="/" component={App} exact={true}/>
@@ -18,9 +21,10 @@ const AppRoutes = () => {
           <Route path="/edit" component={EditBudget} />
           <Route path="/about" component={AboutPage} />
         </Switch>
-      </div>
-    </Router> 
-  );
+        </div>
+      </Router> 
+    </Provider>
+    );
 }
  
 export default AppRoutes;
