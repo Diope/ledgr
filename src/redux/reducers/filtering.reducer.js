@@ -9,6 +9,8 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case FILTER_BY_TEXT:
+      return {...state, text: action.text}
     default:
       return state;
   }
