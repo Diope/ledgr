@@ -5,7 +5,7 @@ import store from '../../redux/store'
 
 import Dashboard from '../Presentation/Dashboard'
 import Header from '../Presentation/Header'
-import CreateBudget from '../Container/CreateBudget'
+import CreateBudget from '../Presentation/CreateBudget'
 import AboutPage from '../Presentation/About'
 import EditBudget from '../Container/EditBudget'
 
