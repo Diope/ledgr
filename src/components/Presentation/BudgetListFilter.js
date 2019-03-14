@@ -16,9 +16,10 @@ class BudgetListFilter extends Component {
     this.handleFocusChange = this.handleFocusChange.bind(this)
   }
 
-  handleDatesChange = ({startingDate, endingDate}) => {
-    this.props.dispatch(setStartingDate(startingDate));
-    this.props.dispatch(setEndingDate(endingDate));
+  handleDatesChange = ({startDate, endDate}) => {
+    console.log(startDate);
+    this.props.dispatch((setStartingDate(startDate)));
+    this.props.dispatch(setEndingDate(endDate));
   }
 
   handleFocusChange = (pickerFocused) => {
@@ -38,15 +39,15 @@ class BudgetListFilter extends Component {
         <select 
           value={this.props.filters.sortBy} 
           onChange={(e) => {
-            if (e.target.value === 'data') {
+            if (e.target.value === 'date') {
               this.props.dispatch(sortByDate())
             } else if (e.target.value === 'amount') {
               this.props.dispatch(sortByAmount())
             }
           }}
         >
-        <option value="date">Date</option>
-        <option value="amount">Amount</option>
+          <option value="date">Date</option>
+          <option value="amount">Amount</option>
         </select>
         <DateRangePicker
           startDateId={uuid()}

@@ -8,6 +8,8 @@ const initialState = {
   endingDate: moment().endOf('month')
 }
 
+
+
 export default function(state = initialState, action) {
   switch (action.type) {
     case FILTER_BY_TEXT:
