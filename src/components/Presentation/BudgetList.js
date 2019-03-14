@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import BudgetItem from './BudgetItem'
-import filterBudget from '../../helpers/getBudget'
+import getBudget from '../../helpers/getBudget'
 
 const BudgetList = (props) => {
   return ( 
@@ -17,7 +17,7 @@ const BudgetList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    budgets: filterBudget(state.budgets, state.filters)
+    budgets: getBudget(state.budgets, state.filters)
   }
 }
  

@@ -1,13 +1,21 @@
 import React from 'react';
-import BudgetForm from '../Container/BudgetForm'
+import {connect} from 'react-redux'
 
-const CreateBudget = () => (
+import BudgetForm from '../Container/BudgetForm'
+import {addBudgetItem} from '../../redux/actions/budgeting.action'
+
+const CreateBudget = (props) => (
     <div>
       <h1>
         Create A Budget
       </h1>
-      <BudgetForm />
+      <BudgetForm 
+        onSubmit={(budget) => {
+          props.dispatch(addBudgetItem(budget));
+          props.history.push("/")
+        }}
+      />
     </div>
 )
  
-export default CreateBudget;
+export default connect()(CreateBudget);

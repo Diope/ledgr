@@ -5,7 +5,7 @@ const initialState = [];
 export default function (state = initialState, action) {
   switch(action.type) {
     case ADD_BUDGET_ITEM:
-      return [...state, action.budget]
+      return [...state, action.budgets]
     case REMOVE_BUDGET_ITEM:
       return state.filter(({id}) => id !== action.id);
     case EDIT_BUDGET_ITEM:

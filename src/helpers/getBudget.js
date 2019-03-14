@@ -1,4 +1,5 @@
 export default (budgets, {text, startingDate, endingDate, sortBy}) => {
+  console.log(budgets);
   return budgets.filter((budget) => {
     const startingDateMatch = typeof startingDate !== 'number' || budget.createdAt >= startingDate;
     const endingDateMatch = typeof endingDate !== 'number' || budget.createdAt <= endingDate;

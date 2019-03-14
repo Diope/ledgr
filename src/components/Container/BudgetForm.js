@@ -13,13 +13,15 @@ class BudgetForm extends Component {
       amount: "",
       note: "",
       createdAt: moment(),
-      pickerFocused: false
+      pickerFocused: false,
+      errors: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleAmountChange = this.handleAmountChange.bind(this)
     this.handleOnDateChange = this.handleOnDateChange.bind(this)
     this.handleOnFocusChange = this.handleOnFocusChange.bind(this)
+    this.handleOnSubmit = this.handleOnSubmit.bind(this)
   }
 
    handleChange = (e) => {
@@ -30,13 +32,31 @@ class BudgetForm extends Component {
 
    handleAmountChange = (e) => {
      const amount = e.target.value;
-     if (amount.match(/^\d*(\.\d{0,2})?$/)) {
+     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
        this.setState(() => ({amount}))
      }
    }
 
    handleOnDateChange = (createdAt) => {
-     this.setState(() => ({createdAt}))
+     if (createdAt) {
+       this.setState(() => ({createdAt}))
+     }
+   }
+
+   handleOnSubmit = (e) => {
+     e.preventDefault();
+     if (!this.state.description || !this.state.amount) {
+       this.setState(() => ({errors: "Please provide budget item description and amount before submitting."}))
+     } else {
+       this.setState(() => ({errors: ""}))
+       this.props.onSubmit({
+         description: this.state.description,
+         amount: (parseFloat(this.state.amount, 10) * 100),
+         createdAt: this.state.createdAt.valueOf(),
+         note: this.state.note
+       })
+     }
+
    }
 
    handleOnFocusChange = ({focused}) => {
@@ -44,9 +64,10 @@ class BudgetForm extends Component {
    }
 
   render() {
-    const {description, amount, note, createdAt, pickerFocused} = this.state;
+    const {description, amount, note, createdAt, pickerFocused, errors} = this.state;
     return ( 
-      <div>
+      <div onSubmit={this.handleOnSubmit}>
+        {errors && (<div><h4>{errors}</h4></div>)}
         <form>
           <input 
             type="text"
