@@ -1,10 +1,11 @@
 import {FILTER_BY_TEXT, SORT_BY_AMOUNT, SORT_BY_DATE, SET_STARTING_DATE, SET_ENDING_DATE} from '../actionTypes'
+import moment from 'moment'
 
 const initialState = {
   text: '',
   sortBy: 'date',
-  startingDate: undefined,
-  endingDate: undefined
+  startingDate: moment().startOf('month'),
+  endingDate: moment().endOf('month')
 }
 
 export default function(state = initialState, action) {
