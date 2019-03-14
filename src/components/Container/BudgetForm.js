@@ -9,10 +9,10 @@ class BudgetForm extends Component {
   constructor(props) {
     super(props)
     this.state = { 
-      description: "",
-      amount: "",
-      note: "",
-      createdAt: moment(),
+      description: props.budget ? props.budget.description : "",
+      amount: props.budget ? (props.budget.amount / 100).toString() : '',
+      note: props.budget ? props.budget.note : "",
+      createdAt: props.budget ? moment(props.budget.createdAt) : moment(),
       pickerFocused: false,
       errors: ''
     }
