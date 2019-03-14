@@ -1,11 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {removeBudgetItem} from '../../redux/actions/budgeting.action'
 
-const BudgetItem = ({description, amount, createdAt}) => {
+const BudgetItem = ({dispatch, id, description, amount, createdAt}) => {
   return ( 
     <div>
-      Yes
+      <h1>{description}</h1>
+      <p>{amount} - {createdAt}</p>
+      <button onClick={() => {dispatch(removeBudgetItem({id}))}}>Remove Item</button>
     </div>
    );
 }
  
-export default BudgetItem;
+export default connect()(BudgetItem);

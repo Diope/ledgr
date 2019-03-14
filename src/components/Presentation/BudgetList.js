@@ -10,6 +10,7 @@ const BudgetList = (props) => {
       {props.budgets.map((budget) => {
         return <BudgetItem key={budget.id} {...budget}/>
       })}
+      
     </div>
    );
 }
