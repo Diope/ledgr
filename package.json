@@ -6,6 +6,7 @@
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "normalize.css": "8.0.1",
+    "numeral": "2.0.6",
     "react": "^16.8.4",
     "react-addons-shallow-compare": "15.6.2",
     "react-dates": "20.1.0",
@@ -34,7 +35,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "jest": "24.5.0"
-  }
+  "devDependencies": {}
 }
