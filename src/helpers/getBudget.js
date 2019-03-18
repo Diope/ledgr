@@ -1,8 +1,8 @@
 import moment from 'moment'
 
-export default (budgets, {text, startingDate, endingDate, sortBy}) => {
-  console.log(budgets);
-  return budgets.filter((budget) => {
+export default (budget, {text, startingDate, endingDate, sortBy}) => {
+  console.log(budget);
+  return budget.filter((budget) => {
     const createdAtMoment = moment(budget.createdAt)
     
     const startingDateMatch = startingDate ? startingDate.isSameOrBefore(createdAtMoment, 'day') : true;   

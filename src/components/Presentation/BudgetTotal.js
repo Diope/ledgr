@@ -11,13 +11,14 @@ const BudgetTotal = ({budgetCount, budgetTotal}) => {
   const usdFormattedTotal = numeral(budgetTotal/100).format('$0,0.00')
   return ( 
     <div>
-      <h1>{budgetCount} {expenditurePluralize} total: {usdFormattedTotal}</h1>
+      <h1>{budgetCount} {expenditurePluralize} totaling: {usdFormattedTotal}</h1>
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   const visibleBudget = getBudget(state.budgets, state.filters)
+  console.log(state)
 
   return {
     budgetCount: visibleBudget.length,
