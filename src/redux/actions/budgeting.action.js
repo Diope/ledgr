@@ -16,7 +16,12 @@ export const editBudgetItem = (id, updates) => ({
   type: EDIT_BUDGET_ITEM,
   id,
   updates
-})
+});
+
+export const setBudgets = (budgets) => ({
+  type: SET_BUDGET_ITEM,
+  budgets
+});
 
 // ---- FIREBASE ACTIONS
 
@@ -40,24 +45,27 @@ export const firebaseAddBudget = (budgetData = {}) => {
   }
 }
 
-export const setBudgets = (budgets) => ({
-  type: SET_BUDGET_ITEM,
-  budgets
-});
-
 export const firebaseSetBudgets = () => {
   return (dispatch) => {
-    return database.ref('budgets').once('value').then((snapshot) => {
+    return database.ref('budgets').once('value').then((budgetItem) => {
       const budgets = [];
 
-      snapshot.forEach((childSnapshot) => {
+      budgetItem.forEach((item) => {
         budgets.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
+          id: item.key,
+          ...item.val()
         })
       })
 
       dispatch(setBudgets(budgets))
+    })
+  }
+}
+
+export const firebaseRemoveBudget = ({id} = {}) => {
+  return (dispatch) => {
+    return database.ref(`budgets/${id}`).remove().then(() => {
+      dispatch(removeBudgetItem({id}));
     })
   }
 }
