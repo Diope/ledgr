@@ -1,4 +1,4 @@
-import {ADD_BUDGET_ITEM, REMOVE_BUDGET_ITEM, EDIT_BUDGET_ITEM} from '../actionTypes'
+import {ADD_BUDGET_ITEM, REMOVE_BUDGET_ITEM, EDIT_BUDGET_ITEM, SET_BUDGET_ITEM} from '../actionTypes'
 
 const initialState = [];
 
@@ -16,6 +16,8 @@ export default function (state = initialState, action) {
           return budget
         }
       })
+    case SET_BUDGET_ITEM:
+      return action.budgets;
     default:
       return state;
   }
