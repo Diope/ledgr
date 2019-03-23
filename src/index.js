@@ -5,6 +5,8 @@ import {firebase} from './firebase/connect'
 import 'normalize.css';
 
 import * as serviceWorker from './serviceWorker';
+import { login, logout } from './redux/actions/auth.action';
+import { store } from './redux/store';
 
 let appRendered = false;
 const renderApp = () => {
@@ -16,11 +18,13 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
+    store.dispatch(login(user.uid))
     renderApp();
     if (history.location.pathname === '/') {
       history.push('/dashboard')
     }
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/');
   }

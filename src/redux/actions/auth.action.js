@@ -1,4 +1,10 @@
 import {firebase, googleAuthProvider, twitterAuthProvider} from '../../firebase/connect'
+import { LOGOUT, LOGIN } from '../actionTypes';
+
+export const login = (uid) => ({
+  type: LOGIN,
+  uid
+})
 
 export const googleAuth = () => {
   return () => {
@@ -11,6 +17,12 @@ export const twitterAuth = () => {
     return firebase.auth().signInWithPopup(twitterAuthProvider)
   }
 }
+
+// ----
+
+export const logout = () => ({
+  type: LOGOUT
+})
 
 export const firebaseLogOut = () => {
   return () => {

@@ -8,3 +8,6 @@ export const SORT_BY_DATE = 'SORT_BY_DATE'
 export const SORT_BY_AMOUNT = 'SORT_BY_AMOUNT'
 export const SET_STARTING_DATE = 'SET_STARTING_DATE'
 export const SET_ENDING_DATE = 'SET_ENDING_DATE'
+
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
