@@ -1,18 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRoutes from './components/Routes/AppRoutes';
+import AppRoutes, {history} from './components/Routes/AppRoutes';
 import {firebase} from './firebase/connect'
 import 'normalize.css';
 
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<AppRoutes/>, document.getElementById('root'));
+let appRendered = false;
+const renderApp = () => {
+  if (!appRendered) {
+    ReactDOM.render(<AppRoutes/>, document.getElementById('root'));
+    appRendered = true;
+  }
+}
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log('logged')
+    renderApp();
+    if (history.location.pathname === '/') {
+      history.push('/dashboard')
+    }
   } else {
-    console.log('Logged Owt');
+    renderApp();
+    history.push('/');
   }
 })
 

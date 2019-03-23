@@ -11,3 +11,9 @@ export const twitterAuth = () => {
     return firebase.auth().signInWithPopup(twitterAuthProvider)
   }
 }
+
+export const firebaseLogOut = () => {
+  return () => {
+    return firebase.auth().signOut();
+  }
+}
