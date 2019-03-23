@@ -8,6 +8,7 @@ import Header from '../Presentation/Header'
 import CreateBudget from '../Presentation/CreateBudget'
 import AboutPage from '../Presentation/About'
 import EditBudget from '../Container/EditBudget'
+import LogIn from '../Container/LogIn'
 
 import '../../App.scss'
 
@@ -18,8 +19,9 @@ const AppRoutes = () => {
         <div>
         <Header />
         <Switch>
-          <Route path="/" component={Dashboard} exact={true}/>
-          <Route path="/create" component={CreateBudget} />
+        <Route path="/" component={LogIn} exact={true}/>
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/create" component={CreateBudget} />
           <Route path="/edit/:id" component={EditBudget} />
           <Route path="/about" component={AboutPage} />
         </Switch>
@@ -28,5 +30,7 @@ const AppRoutes = () => {
     </Provider>
     );
 }
+
+
  
 export default AppRoutes;
