@@ -5,6 +5,7 @@ import {googleAuth, twitterAuth} from '../../redux/actions/auth.action'
 const LogIn = ({googleAuth, twitterAuth}) => {
   return ( 
     <div>
+      <h1>Log In</h1>
       <button onClick={googleAuth}>Login With Google</button>
       <button onClick={twitterAuth}>Login With Twitter</button>
     </div>

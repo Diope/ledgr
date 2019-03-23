@@ -7,7 +7,7 @@ const Header = ({firebaseLogOut}) => {
   return (
     <header>
       <h1>Financial Budgeting</h1>
-      <NavLink to="/" activeClassName="active-link" exact={true}>Dashboard</NavLink>
+      <NavLink to="/dashboard" activeClassName="active-link" >Dashboard</NavLink>
       <NavLink to="/create" activeClassName="active-link">Create A Budget</NavLink>
       <NavLink to="/about" activeClassName="active-link">About</NavLink>
       <button onClick={firebaseLogOut}>Log Out</button>
