@@ -10,7 +10,6 @@ class BudgetList extends Component {
     this.props.firebaseSetBudgets()
   }
   
-
   render() {
     return (
     <div>

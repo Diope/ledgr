@@ -45,6 +45,14 @@ export const firebaseAddBudget = (budgetData = {}) => {
   }
 }
 
+export const firebaseEditBudget = (id, updates) => {
+  return (dispatch) => {
+    database.ref(`budgets/${id}`).update(updates).then(() => {
+      dispatch(editBudgetItem(id, updates))
+    })
+  }
+}
+
 export const firebaseSetBudgets = () => {
   return (dispatch) => {
     return database.ref('budgets').once('value').then((budgetItem) => {

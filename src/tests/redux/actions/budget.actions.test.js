@@ -2,7 +2,18 @@ import {addBudgetItem, editBudgetItem, removeBudgetItem} from '../../../redux/ac
 import { REMOVE_BUDGET_ITEM, EDIT_BUDGET_ITEM, ADD_BUDGET_ITEM, SET_BUDGET_ITEM } from '../../../redux/actionTypes';
 import uuid from 'uuid/v4'
 import budgetingReducer from '../../../redux/reducers/budgeting.reducer';
-import budgets from '../../fixtures/budgets';
+import budgets from '../../fixtures/budgets'
+import database from '../../../firebase/connect'
+
+beforeEach((done) => {
+  const budgetData = {};
+
+  budgets.forEach(({id, description, amount, note, createdAt}) => {
+    budgetData[id] = {description, amount, note, createdAt};
+  });
+  database.ref('budgets2').set(budgetData).then(() => done());
+});
+
 
 test('Should remove budget line item action object', () => {
   const action = removeBudgetItem({id: '490kslj'})
@@ -11,6 +22,7 @@ test('Should remove budget line item action object', () => {
     id: '490kslj'
   })
 })
+
 
 test('Should successfully trigger the addBudgetItem action', () => {
   const idData = uuid()
