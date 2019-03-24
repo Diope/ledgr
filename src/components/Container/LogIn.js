@@ -2,13 +2,21 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {googleAuth, twitterAuth} from '../../redux/actions/auth.action'
 
+import {Layout, LayoutBox, GoogleButton, TwitterButton} from '../../styles/Login/LoginLayout'
+
+
 const LogIn = ({googleAuth, twitterAuth}) => {
   return ( 
-    <div>
-      <h1>Log In</h1>
-      <button onClick={googleAuth}>Login With Google</button>
-      <button onClick={twitterAuth}>Login With Twitter</button>
-    </div>
+    <Layout>
+
+      <LayoutBox>
+        <h1>Financial Balance</h1>
+        <h3>Log In</h3>
+        <GoogleButton onClick={googleAuth}>Login With Google</GoogleButton>
+        <TwitterButton onClick={twitterAuth}>Login With Twitter</TwitterButton>
+      </LayoutBox>
+      
+    </Layout>
    );
 }
  

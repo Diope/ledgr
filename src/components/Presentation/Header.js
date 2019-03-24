@@ -1,17 +1,21 @@
 import React from 'react';
-import {NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
 import {connect} from 'react-redux';
 import { firebaseLogOut } from '../../redux/actions/auth.action';
 
+import {HeaderStyle, HeaderContent} from '../../styles/Header/HeaderStyle'
+import {ContentContainer} from '../../styles/BudgetContainer'
+
 const Header = ({firebaseLogOut}) => {
   return (
-    <header>
-      <h1>Financial Budgeting</h1>
-      <NavLink to="/dashboard" activeClassName="active-link" >Dashboard</NavLink>
-      <NavLink to="/create" activeClassName="active-link">Create A Budget</NavLink>
-      <NavLink to="/about" activeClassName="active-link">About</NavLink>
-      <button onClick={firebaseLogOut}>Log Out</button>
-    </header>
+    <HeaderStyle>
+      <ContentContainer>
+        <HeaderContent>
+          <Link to="/dashboard" className="title"><h1>Financial Balancing</h1></Link>
+          <button onClick={firebaseLogOut}>Log Out</button>
+        </HeaderContent>
+      </ContentContainer>
+    </HeaderStyle>
    );
 }
 
