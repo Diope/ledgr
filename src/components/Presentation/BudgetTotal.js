@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import numeral from 'numeral'
 import {Link} from 'react-router-dom'
 
-import {TotalHeader, TotalHeaderTitle, TotalHeaderAction} from '../../styles/PageSummary';
+import {TotalHeader, TotalHeaderTitle, TotalHeaderAction} from '../../styles/StyledBudgetTotal';
 import {ContentContainer} from '../../styles/BudgetContainer'
 
 import budgetTotal from '../../helpers/budgetTotal'

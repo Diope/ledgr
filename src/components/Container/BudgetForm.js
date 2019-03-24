@@ -4,6 +4,9 @@ import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css'
+import { TextInput, TextArea } from '../../styles/Inputs';
+import { Button } from '../../styles/Button';
+import { Form, FormError } from '../../styles/Form';
 
 class BudgetForm extends Component {
   constructor(props) {
@@ -46,7 +49,7 @@ class BudgetForm extends Component {
    handleOnSubmit = (e) => {
      e.preventDefault();
      if (!this.state.description || !this.state.amount) {
-       this.setState(() => ({errors: "Please provide budget item description and amount before submitting."}))
+       this.setState(() => ({errors: "Please provide budget item: description, amount, and date before submitting."}))
      } else {
        this.setState(() => ({errors: ""}))
        this.props.onSubmit({
@@ -67,19 +70,19 @@ class BudgetForm extends Component {
     const {description, amount, note, createdAt, pickerFocused, errors} = this.state;
     return ( 
       <div onSubmit={this.handleOnSubmit}>
-        {errors && (<div><h4>{errors}</h4></div>)}
-        <form>
-          <input 
+        {errors && (<FormError><h4>{errors}</h4></FormError>)}
+        <Form>
+          <TextInput 
             type="text"
             value={description}
             onChange={this.handleChange}
             name="description"
-            placeholder="Description of budget item" 
+            placeholder="Description" 
             autoFocus
           />
-          <input 
+          <TextInput 
             type="number" 
-            placeholder="Amount of Budget Item"
+            placeholder="Amount"
             value={amount}
             name="amount"
             onChange={this.handleAmountChange}
@@ -92,14 +95,16 @@ class BudgetForm extends Component {
             focused={pickerFocused}
             onFocusChange={this.handleOnFocusChange}
           />
-          <textarea
+          <TextArea
             value={note}
             name="note"
             onChange={this.handleChange}
-            placeholder="Add a note for budget item"
+            placeholder="Notes (optional)"
           />
-          <button>Add Budget Item</button>
-        </form>
+          <div>
+            <Button>Add Budget Item</Button>
+          </div>
+        </Form>
       </div>
      );
   }

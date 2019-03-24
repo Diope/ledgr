@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux'
 import {googleAuth, twitterAuth} from '../../redux/actions/auth.action'
 
-import {Layout, LayoutBox, GoogleButton, TwitterButton} from '../../styles/Login/LoginLayout'
+import {Layout, LayoutBox, GoogleButton, TwitterButton} from '../../styles/LoginLayout'
 
 
 const LogIn = ({googleAuth, twitterAuth}) => {

@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import BudgetForm from '../Container/BudgetForm'
 import {firebaseAddBudget} from '../../redux/actions/budgeting.action'
+import { ContentContainer } from '../../styles/BudgetContainer';
+import { TotalHeaderTitle, TotalHeader } from '../../styles/StyledBudgetTotal';
 
 class CreateBudget extends Component {
 
@@ -13,14 +15,18 @@ class CreateBudget extends Component {
 
     render () {
       return (
-        <div>
-          <h1>
-            Create A Budget
-          </h1>
-          <BudgetForm 
-            onSubmit={this.handleSubmit}
-          />
-        </div>
+        <>
+          <TotalHeader>
+            <ContentContainer>
+              <TotalHeaderTitle>Create A Budget</TotalHeaderTitle>
+            </ContentContainer>
+          </TotalHeader>
+          <ContentContainer>
+            <BudgetForm 
+              onSubmit={this.handleSubmit}
+            />
+          </ContentContainer>
+        </>
       )
     }
 }

@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import {connect} from 'react-redux';
 import { firebaseLogOut } from '../../redux/actions/auth.action';
 
-import {HeaderStyle, HeaderContent, LogOutButton} from '../../styles/Header/HeaderStyle'
+import {HeaderStyle, HeaderContent, LogOutButton} from '../../styles/HeaderStyle'
 import {ContentContainer} from '../../styles/BudgetContainer'
 
 const Header = ({firebaseLogOut}) => {
