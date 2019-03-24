@@ -1,6 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import numeral from 'numeral'
+import {Link} from 'react-router-dom'
+
+import {TotalHeader, TotalHeaderTitle, TotalHeaderAction} from '../../styles/PageSummary';
+import {ContentContainer} from '../../styles/BudgetContainer'
 
 import budgetTotal from '../../helpers/budgetTotal'
 import getBudget from '../../helpers/getBudget'
@@ -10,9 +14,16 @@ const BudgetTotal = ({budgetCount, budgetTotal}) => {
   const expenditurePluralize = budgetCount === 1 ? 'Expenditure' : 'Expenditures';
   const usdFormattedTotal = numeral(budgetTotal/100).format('$0,0.00')
   return ( 
-    <div>
-      <h1>{budgetCount} {expenditurePluralize} totaling: {usdFormattedTotal}</h1>
-    </div>
+    <TotalHeader>
+      <ContentContainer>
+        <TotalHeaderTitle>
+          <span>{budgetCount}</span> {expenditurePluralize} totaling: <span>{usdFormattedTotal}</span>
+          <TotalHeaderAction>
+            <Link to="/create" className="button">Add Budget Item</Link>
+          </TotalHeaderAction>
+        </TotalHeaderTitle>
+      </ContentContainer>
+    </TotalHeader>
   );
 }
 

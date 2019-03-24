@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import {connect} from 'react-redux';
 import { firebaseLogOut } from '../../redux/actions/auth.action';
 
-import {HeaderStyle, HeaderContent} from '../../styles/Header/HeaderStyle'
+import {HeaderStyle, HeaderContent, LogOutButton} from '../../styles/Header/HeaderStyle'
 import {ContentContainer} from '../../styles/BudgetContainer'
 
 const Header = ({firebaseLogOut}) => {
@@ -12,7 +12,7 @@ const Header = ({firebaseLogOut}) => {
       <ContentContainer>
         <HeaderContent>
           <Link to="/dashboard" className="title"><h1>Financial Balancing</h1></Link>
-          <button onClick={firebaseLogOut}>Log Out</button>
+          <LogOutButton onClick={firebaseLogOut}>Log Out</LogOutButton>
         </HeaderContent>
       </ContentContainer>
     </HeaderStyle>
