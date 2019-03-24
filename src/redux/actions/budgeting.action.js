@@ -26,7 +26,9 @@ export const setBudgets = (budgets) => ({
 // ---- FIREBASE ACTIONS
 
 export const firebaseAddBudget = (budgetData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    console.log(uid);
     const {
       description = '',
       note = '',
@@ -35,7 +37,7 @@ export const firebaseAddBudget = (budgetData = {}) => {
     } = budgetData;
     const budget = {description, note, amount, createdAt}
 
-    database.ref('budgets').push(budget)
+    database.ref(`users/${uid}/budgets`).push(budget)
       .then((ref) => {
         dispatch(addBudgetItem({
           id: ref.key,
@@ -46,16 +48,18 @@ export const firebaseAddBudget = (budgetData = {}) => {
 }
 
 export const firebaseEditBudget = (id, updates) => {
-  return (dispatch) => {
-    return database.ref(`budgets/${id}`).update(updates).then(() => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/budgets/${id}`).update(updates).then(() => {
       dispatch(editBudgetItem(id, updates))
     })
   }
 }
 
 export const firebaseSetBudgets = () => {
-  return (dispatch) => {
-    return database.ref('budgets').once('value').then((budgetItem) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/budgets`).once('value').then((budgetItem) => {
       const budgets = [];
 
       budgetItem.forEach((item) => {
@@ -71,8 +75,9 @@ export const firebaseSetBudgets = () => {
 }
 
 export const firebaseRemoveBudget = ({id} = {}) => {
-  return (dispatch) => {
-    return database.ref(`budgets/${id}`).remove().then(() => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid
+    return database.ref(`users/${uid}/budgets/${id}`).remove().then(() => {
       dispatch(removeBudgetItem({id}));
     })
   }
