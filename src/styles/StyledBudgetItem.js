@@ -21,6 +21,23 @@ export const ListItem = styled.div`
     }
   }
 
+  .no-item-message {
+    align-items: center;
+    font-size: 1.6rem;
+    font-size: 300;
+    justify-content: center;
+    color: #757575;
+    padding: 1.8rem;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .no-item-link {
+    text-decoration: none;
+    color: #179BB5;
+  }
+
   .listItem__Title {
     font-size: 1.8rem;
     font-weight: 700;
