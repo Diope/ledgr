@@ -6,7 +6,7 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css'
 import { TextInput, TextArea } from '../../styles/Inputs';
 import { Button } from '../../styles/Button';
-import { Form, FormError } from '../../styles/Form';
+import { Form, FormError } from '../../styles/StyledForm';
 
 class BudgetForm extends Component {
   constructor(props) {
@@ -102,7 +102,7 @@ class BudgetForm extends Component {
             placeholder="Notes (optional)"
           />
           <div>
-            <Button>Add Budget Item</Button>
+            <Button>Save Budget Item</Button>
           </div>
         </Form>
       </div>

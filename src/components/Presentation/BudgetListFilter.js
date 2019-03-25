@@ -5,7 +5,7 @@ import uuid from 'uuid'
 import {DateRangePicker} from 'react-dates'
 import {filterByText, sortByDate, sortByAmount, setStartingDate, setEndingDate} from '../../redux/actions/filtering.action'
 
-import {ContentContainer} from '../../styles/BudgetContainer'
+import {ContentContainer} from '../../styles/SharedStyles'
 import {InputGroup, InputGroupItem} from '../../styles/StyledBudgetListFilter'
 import {TextInput, Selector} from '../../styles/Inputs'
 

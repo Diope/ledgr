@@ -4,7 +4,7 @@ import numeral from 'numeral'
 import {Link} from 'react-router-dom'
 
 import {TotalHeader, TotalHeaderTitle, TotalHeaderAction} from '../../styles/StyledBudgetTotal';
-import {ContentContainer} from '../../styles/BudgetContainer'
+import {ContentContainer} from '../../styles/SharedStyles'
 
 import budgetTotal from '../../helpers/budgetTotal'
 import getBudget from '../../helpers/getBudget'

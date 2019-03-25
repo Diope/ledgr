@@ -9,5 +9,15 @@ export const Button = styled.button`
     font-size: 2.0rem;
     padding: 1.4rem;
     text-decoration: none;
+`
 
+export const WarningButton = styled.button`
+  background: #BDBFC0;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  font-weight: 300;
+  font-size: 2.0rem;
+  padding: 1.4rem;
+  text-decoration: none;
 `

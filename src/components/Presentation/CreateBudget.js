@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import BudgetForm from '../Container/BudgetForm'
 import {firebaseAddBudget} from '../../redux/actions/budgeting.action'
-import { ContentContainer } from '../../styles/BudgetContainer';
+import { ContentContainer } from '../../styles/SharedStyles';
 import { TotalHeaderTitle, TotalHeader } from '../../styles/StyledBudgetTotal';
 
 class CreateBudget extends Component {

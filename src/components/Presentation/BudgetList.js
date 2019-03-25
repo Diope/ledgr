@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import BudgetItem from './BudgetItem'
 import getBudget from '../../helpers/getBudget'
 import { firebaseSetBudgets } from '../../redux/actions/budgeting.action';
+import { ContentContainer } from '../../styles/SharedStyles';
+import { MobileView, DesktopView, ListHeading } from '../../styles/StyledBudgetList';
 
 class BudgetList extends Component {
 
@@ -12,13 +14,18 @@ class BudgetList extends Component {
   
   render() {
     return (
-    <div>
-      <h1>My Budget</h1>
-      {this.props.budgets.map((budget) => {
-        return <BudgetItem key={budget.id} {...budget}/>
-      })}
+      <ContentContainer>
+
+        <ListHeading>
+          <MobileView>Budget</MobileView>
+          <DesktopView>Budget Item</DesktopView>
+          <DesktopView>Amount</DesktopView>
+        </ListHeading>
+          {this.props.budgets.map((budget) => {
+            return <BudgetItem key={budget.id} {...budget}/>
+          })}
       
-    </div>
+      </ContentContainer>
    );
   }
 }

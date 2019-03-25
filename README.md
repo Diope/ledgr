@@ -1,4 +1,4 @@
-# Financial Balancing
+# Ledgr
 
 A small React/Firebase/Redux app to learn Firebase. I'm not 100% sure if my database rules are correct but so far with testing it's been pretty solid. I received help developing this and I think some rules have been broken that will soon be problematic, more specifically the redux store singleton being called twice.
 
