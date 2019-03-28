@@ -36,7 +36,7 @@ test('Should remove budget line item action object', () => {
   expect(action).toEqual({
     type: REMOVE_BUDGET_ITEM,
     id: '490kslj'
-  })
+  });
 })
 
 
