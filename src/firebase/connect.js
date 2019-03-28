@@ -7,7 +7,7 @@ let config = {
     projectId: "financial-budgeting",
     storageBucket: "financial-budgeting.appspot.com",
     messagingSenderId: "950138150712"
-};;
+};
 
 firebase.initializeApp(config);
 

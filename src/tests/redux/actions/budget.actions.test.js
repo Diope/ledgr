@@ -1,19 +1,35 @@
-import {addBudgetItem, editBudgetItem, removeBudgetItem} from '../../../redux/actions/budgeting.action'
+import {addBudgetItem, editBudgetItem, removeBudgetItem, firebaseAddBudget} from '../../../redux/actions/budgeting.action'
 import { REMOVE_BUDGET_ITEM, EDIT_BUDGET_ITEM, ADD_BUDGET_ITEM, SET_BUDGET_ITEM } from '../../../redux/actionTypes';
 import uuid from 'uuid/v4'
 import budgetingReducer from '../../../redux/reducers/budgeting.reducer';
 import budgets from '../../fixtures/budgets'
 import database from '../../../firebase/connect'
 
-beforeEach((done) => {
-  const budgetData = {};
+import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store' 
 
-  budgets.forEach(({id, description, amount, note, createdAt}) => {
-    budgetData[id] = {description, amount, note, createdAt};
-  });
-  database.ref('budgets2').set(budgetData).then(() => done());
-});
+const createMockStore = configureMockStore([thunk])
 
+// beforeEach((done) => {
+//   const budgetData = {};
+
+//   budgets.forEach(({id, description, amount, note, createdAt}) => {
+//     budgetData[id] = {description, amount, note, createdAt};
+//   });
+//   database.ref('budgets2').set(budgetData).then(() => done());
+// });
+
+// test('should store an item on the database', () => {
+//   const store = createMockStore({});
+//   const budgetItem = {
+//     description: 'Macbook Pro',
+//     amount: 1490000,
+//     note: 'I need a new one?',
+//     createdAt: 1402
+//   }
+
+//   store.dispatch(firebaseAddBudget(budgetItem))
+// });
 
 test('Should remove budget line item action object', () => {
   const action = removeBudgetItem({id: '490kslj'})
