@@ -1,5 +1,4 @@
 import {ADD_BUDGET_ITEM, REMOVE_BUDGET_ITEM, EDIT_BUDGET_ITEM, SET_BUDGET_ITEM} from '../actionTypes'
-import uuid from 'uuid/v4'
 import database from '../../firebase/connect'
 
 export const addBudgetItem = (budget) => ({
