@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import moment from 'moment'
 
 export default (budget, {text, startingDate, endingDate, sortBy}) => {
@@ -10,7 +11,6 @@ export default (budget, {text, startingDate, endingDate, sortBy}) => {
     const matchingText = budget.description.toLowerCase().includes(text.toLowerCase());
 
     return startingDateMatch && endingDateMatch && matchingText;
-  // eslint-disable-next-line array-callback-return
   }).sort((a,b) => {
     if (sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;
